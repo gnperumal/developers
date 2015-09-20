@@ -1,4 +1,4 @@
-package com.example;
+package com.gnperumal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

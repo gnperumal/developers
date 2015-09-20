@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+group = 'org.gnperumal'
+version = '0.0.1-SNAPSHOT'
+
+description = """spring-data-demo"""
+
+jar {
+    baseName = 'developer-db'
+    version =  '0.1.0'
+}
+
+
+
+repositories {
+
+     maven { url "http://mvn.in.gnperumal.com/nexus/content/groups/public/" }
+     maven { url "http://artifactory-003.in.gnperumal.com/artifactory/libs-snapshot" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencies {
+    // tag::jetty[]
+    compile("org.springframework.boot:spring-boot-starter-web") /*{
+        exclude module: "spring-boot-starter-tomcat"
+    }*/
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'1.2.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version:'1.2.4.RELEASE'
+    compile group: 'com.h2database', name: 'h2', version:'1.4.187'
+    compile group: 'org.springframework.data', name: 'spring-data-commons', version:'1.9.2.RELEASE'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

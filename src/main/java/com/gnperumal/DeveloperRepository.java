@@ -1,4 +1,4 @@
-package com.example;
+package com.gnperumal;
 
 import org.springframework.data.repository.CrudRepository;
 
